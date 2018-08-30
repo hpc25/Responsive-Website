@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="form.css">
+	<link rel="stylesheet" type="text/css" href="header.css">
+	
+	<style>
+		
+		
+		@media screen and (max-width: 600px)
+		{
+			.form1,button[type=submit],button[type=reset]{
+			width:100%;
+			}		
+		}
+		
+		
+	</style>
+
+	<script type="text/javascript">
+	function validateForm() {
+	
+	if( document.hform.mobile.value == "" || isNaN( document.hform.mobile.value ) || document.hform.mobile.value.length != 10 )
+         {
+            alert( "Please provide a valid mobile no." );
+            document.hform.mobile.focus() ;
+            return false;
+         }
+		if(document.hform.password1.value.length == ""|| document.hform.password1.value.length< 8)
+		 {
+			alert( "Password length so be atleast 8" );
+            document.hform.password1.focus() ;
+            return false;
+		 }
+		 /*
+		 if(document.hform.password2.length == ""|| document.hform.password2.length< 8)
+		 {
+			alert( "Password length so be atleast 8" );
+            document.hform.password2.focus() ;
+            return false;
+		 }*/
+		 if(document.hform.password1.value != document.hform.password2.value)
+		 {
+			alert( "password and confirm password should match" );
+            document.hform.password1.focus() ;
+			document.hform.password2.focus() ;
+            return false;
+		 }
+		 
+	return(true);
+	}
+</script>
+</head>
+
+<body>
+
+	<header>
+	<div id="topnav"><a href="pocketnews.html"><p>Pocket  News</p></a></div>
+	
+	<ul>
+		<li class="dropdown">
+				<a href="#" class="dropbtn">Categories</a>
+				
+		<div class="dropdown-content">
+			<a href="sport.html">Sports</a>
+		<a href="Techno.html">Technology</a>
+		<a href="entertainment.html">Entertainment</a>
+		<a href="Politics.html">Politics</a>
+		<a href="business.html">Business</a>
+		<a href="pocketform.html">Subscribe</a>
+		</div>
+		</li>
+		
+		</ul>
+	<nav>
+		<a href="sport.html">Sports</a>
+		<a href="Techno.html">Technology</a>
+		<a href="entertainment.html">Entertainment</a>
+		<a href="Politics.html">Politics</a>
+		<a href="business.html">Business</a>
+	</nav>
+		
+	</header>
+
+<div id="formdiv">
+	<form method="get" action="home1.html" name="hform" onsubmit="return(validateForm())">
+	<fieldset>
+		<legend>Subscription</legend>
+		
+		
+		<br>First Name<br>
+		<input type="text" name="FirstName" placeholder="First Name" class="form1" required><br>
+		
+		<br>Last Name<br>
+		<input type="text" name="LastName" placeholder="Last Name" class="form1" required><br>
+		
+		<br>Email<br>
+		<input type="email" name="email" placeholder="example@gmail.com" class="form1" required><br>
+		
+		<br>Mobile no.<br>
+		<input type="number" name="mobile" class="form1" required><br>
+		
+		<br>Select category of news you like<br><br>
+		<input type="checkbox" value="Sports">Sports</input>
+					<input type="checkbox" value="Politics" >Politics  </input>
+					<input type="checkbox" value="Entertainment">Entertainment </input>
+					<input type="checkbox" value="Technology">Technology </input>
+					<input type="checkbox" value="Business">Business </input>
+				<br>	
+		
+		<br>Notification Time<br>
+		<input type="time" name="time" class="form1"  required><br>
+		
+		
+		<br>Notification frequency<br>
+		<td><select name="frequency" class="form1" required>
+		<option value="Daily">Daily</option>
+		<option value="Weekly">Weekly</option>
+		<option value="Monthly">Monthly</option>
+		</select>
+		<br>
+		
+		<br>Password<br>
+		<input type="password" name="password1" class="form1"  placeholder="Password" required><br>
+		
+		<input type="password" name="password2" class="form1"  placeholder="Confirm Password" required><br>
+		
+		<br><button type="submit" value="Submit">Submit</button><br>
+		
+		<br><button type="reset" value="Reset">Reset</button>
+		
+		
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>
